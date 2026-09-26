@@ -1,0 +1,153 @@
+Milestone log — dynamic_reallocation/area_survey.py (validated run)
+Full raw console output is captured in the screenshots under docs/images/reallocation/.
+This file lists only the key milestone lines, in order, for quick reference.
+
+============================================================
+INITIALIZING DRONE INTERFACES
+============================================================
+Creating interface: drone0
+Creating interface: drone1
+Creating interface: drone2
+All drone interfaces initialized.
+
+============================================================
+TAKING OFF ALL DRONES
+============================================================
+drone0: TAKEOFF SUCCESS
+drone2: TAKEOFF SUCCESS
+drone1: TAKEOFF SUCCESS
+All drones airborne.
+
+============================================================
+STARTING PARALLEL AREA SURVEY
+============================================================
+drone0 -> Area A
+drone1 -> Area B
+drone2 -> Area C
+
+MISSION MANAGER ACTIVE
+Waiting for drone0 delay detection...
+
+drone0: waypoint 1 COMPLETED
+drone0: waypoint 2 COMPLETED
+
+============================================================
+SIMULATED DELAY
+============================================================
+drone0: DELAY detected before waypoint 3
+Simulated delay condition = 8.0 seconds
+drone0: waiting for task reassignment...
+
+MISSION MANAGER: DELAY DETECTED
+
+============================================================
+DYNAMIC TASK REALLOCATION
+============================================================
+Drone0 = DELAYED
+Area A completed: 2/4
+Drone0 remaining waypoints:
+  A3: (-1.00, 2.00, 1.00)
+  A4: (-1.00, -2.00, 1.00)
+
+============================================================
+SEARCHING FOR HELPER DRONE
+============================================================
+No idle helper yet. Waiting 5.0s...
+No idle helper yet. Waiting 4.0s...
+No idle helper yet. Waiting 3.0s...
+No idle helper yet. Waiting 1.0s...
+No helper became naturally available.
+Switching to PREEMPTIVE REALLOCATION.
+
+============================================================
+PREEMPTING BUSY HELPER
+============================================================
+Selected helper: drone2
+Current state: SURVEYING
+Original area: C
+Completed original waypoints: []
+drone2: stopping current GoTo behavior...
+drone2: waypoint 1 interrupted by preemption
+drone2: GoTo stop result = True
+drone2: stop request = True
+drone2: original survey successfully preempted
+drone2: unfinished original waypoints = [1, 2, 3, 4]
+
+============================================================
+TASK TRANSFER
+============================================================
+Drone0 -> drone2
+Transferred Area A waypoints: [3, 4]
+
+============================================================
+drone2: EXECUTING DRONE0 REMAINING WORK
+============================================================
+drone2: assigned Area A waypoint 3/4
+drone2: Area A waypoint 3 COMPLETED
+drone2: assigned Area A waypoint 4/4
+drone2: Area A waypoint 4 COMPLETED
+
+============================================================
+DRONE0 WORK COMPLETED BY HELPER
+============================================================
+Area A progress: 4/4
+
+============================================================
+RESUMING drone2 ORIGINAL SURVEY
+============================================================
+Original area: C
+Remaining original waypoints: [1, 2, 3, 4]
+drone2: assigned Area C waypoint 1/4
+drone2: assigned Area C waypoint 2/4
+drone2: assigned Area C waypoint 3/4
+drone2: assigned Area C waypoint 4/4
+drone2: Area C waypoint 4 COMPLETED
+
+============================================================
+REALLOCATION COMPLETE
+============================================================
+drone2 completed Drone0's remaining Area A work.
+drone2 also completed its original Area C work.
+
+drone1: AREA B COMPLETED   (independent, in parallel throughout)
+
+============================================================
+WAITING FOR SURVEY THREADS
+============================================================
+drone0: thread completed with state TRANSFERRED
+drone1: thread completed with state AVAILABLE
+
+============================================================
+FINAL MISSION VERIFICATION
+============================================================
+Area A: 4/4
+Area B: 4/4
+Area C: 4/4
+
+Dynamic reallocation: COMPLETED
+Helper drone: drone2
+
+============================================================
+ALL SURVEY AREAS COMPLETED
+============================================================
+Area A: COMPLETE
+Area B: COMPLETE
+Area C: COMPLETE
+
+DYNAMIC MULTI-DRONE TASK REALLOCATION: SUCCESS
+
+============================================================
+LANDING ALL DRONES
+============================================================
+drone1: LAND SUCCESS
+drone2: LAND SUCCESS
+drone0: LAND SUCCESS
+All landing commands completed.
+
+============================================================
+SHUTTING DOWN DRONE INTERFACES
+============================================================
+
+============================================================
+MISSION COMPLETED SUCCESSFULLY
+============================================================

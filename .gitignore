@@ -1,0 +1,23 @@
+# ROS 2 / colcon build artifacts
+build/
+install/
+log/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+
+# Gazebo
+*.gzlog
+/.gazebo/
+
+# OS / editor
+.DS_Store
+.vscode/
+*.swp
+
+# Logs (keep curated samples in logs/, ignore raw dumps)
+*.log.raw

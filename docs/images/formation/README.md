@@ -1,0 +1,1 @@
+Add your own formation-control run screenshots here (e.g. takeoff, waypoint transitions, Gazebo 3D formation view, final landing) and reference them from ../../formation-control.md, following the same pattern used in ../reallocation/.

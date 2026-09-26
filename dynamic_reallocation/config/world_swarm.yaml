@@ -1,0 +1,20 @@
+# world_swarm.yaml
+#
+# Gazebo world definition for the 3-drone swarm configuration used by
+# area_survey.py. Replace this placeholder with your actual AeroStack2
+# world/model configuration (drone models, spawn poses, world plugins).
+#
+# Referenced by: ../scripts/launch_as2.bash
+
+world_name: swarm_world
+
+drones:
+  - name: drone0
+    model: quadrotor_base
+    spawn_pose: { x: -2.5, y: -2.0, z: 0.0, yaw: 0.0 }
+  - name: drone1
+    model: quadrotor_base
+    spawn_pose: { x: -0.5, y: -2.0, z: 0.0, yaw: 0.0 }
+  - name: drone2
+    model: quadrotor_base
+    spawn_pose: { x: 1.0, y: -2.0, z: 0.0, yaw: 0.0 }
