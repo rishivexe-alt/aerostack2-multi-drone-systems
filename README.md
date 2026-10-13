@@ -203,3 +203,8 @@ Built on the [AeroStack2](https://github.com/aerostack2/aerostack2) framework, R
 ## License
 
 MIT — see [LICENSE](LICENSE).
+
+## Author
+
+**Rishi P.**  
+Electronics & Communication Engineering  
